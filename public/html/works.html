@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/public/images/Logo.png" type="png" />
+    <link rel="stylesheet" href="/public/styles/app.css" />
+    <script src="/public/JavaScript/works.js" defer></script>
+    <title>Makariya.Product</title>
+  </head>
+  <body>
+    <div class="bg-black fixed top-0 p-5 w-full">
+      <button
+        id="backPageBtn"
+        class="w-32 h-[40px] mb-6 text-white mx-auto rounded-sm mt-7 bg-amber-450 flex-center text-xl"
+      >
+        BACK
+      </button>
+    </div>
+    <h1 id="work-title" class="text-center mt-40 text-4xl sm:text-6xl font-SourceSansBold">Work Title</h1>
+    <div class="container">
+      <div id="works-document" class="flex flex-col-reverse md:flex-row  justify-between items-center mt-8">
+        <div>
+          <p class="text-center p-2 line-clamp-4 sm:line-clamp-none md:text-left max-w-[500px] md:max-w-[583px] leading-[30px]">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Impedit
+            doloremque adipisci repellendus minus, a error sint eligendi! Cupiditate
+            aspernatur deserunt, amet eos esse vitae quod voluptate enim unde
+            blanditiis officiis.(<span id="descripe-note">PhotoGraphy 1</span>)
+          </p>
+          <div class="mt-3 md:mt-8">
+            <a id="works-price" class="bg-green-700 text-white w-36 h-11 flex-center rounded-sm mx-auto md:mx-0" href="#">Buy Work 59$</a>
+          </div>
+          <div class="flex justify-center md:justify-start gap-16 text-white child:bg-amber-450 mt-5 md:mt-12">      
+            <a id="previous-Page" class="w-36 h-11 rounded-sm flex-center gap-2" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m18.75 4.5-7.5 7.5 7.5 7.5m-6-15L5.25 12l7.5 7.5" />
+              </svg>    
+              Previous Work         
+            </a>
+            <a id="next-Page" class="w-32 h-11 rounded-sm flex-center gap-2" href="#">
+              Next Work
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
+              </svg>    
+            </a>
+          </div>
+        </div>
+        <img
+          id="works-img"
+          class="h-72 lg:h-96"
+          src="/public/images/Photography.png"
+          alt="photoGraphy"
+        />
+      </div>
+    </div>
+  </body>
+</html>

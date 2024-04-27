@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "Roboto";
+    src: local("Roboto-Regular");
+  }
+  @font-face {
+    font-family: "sourceSans";
+    src: local("SourceSansPro-Bold");
+  }
+}
+
+@layer components {
+  .make-slider {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    -webkit-transition: opacity 0.5s ease-in-out;
+    -moz-transition: opacity 0.5s ease-in-out;
+    -ms-transition: opacity 0.5s ease-in-out;
+    -o-transition: opacity 0.5s ease-in-out;
+  }
+  .make-slider.active {
+    opacity: 1;
+  }
+  .menu-item:after {
+    @apply w-full  -bottom-[1.60rem] left-0 h-1 absolute bg-amber-450;
+    content: "";
+  }
+
+  .listItem:hover {
+    @apply h-5;
+  }
+
+  .listItem:hover .subMenu {
+    @apply opacity-100 visible;
+  }
+  .listItem:hover svg {
+    @apply rotate-180;
+  }
+  .page.active {
+    @apply bg-amber-450;
+  }
+  .section-title::after {
+    @apply w-[35px] h-1.5 bg-amber-450 -bottom-2 left-0 right-0 mx-auto  absolute;
+    content: "";
+  }
+
+  .history-title::after,
+  .team-title::after {
+    @apply bottom-0  w-1.5 h-28 bg-amber-450 absolute;
+    content: "";
+  }
+
+  .history-title::after {
+    @apply my-auto -left-5 md:-top-20;
+  }
+
+  .team-title::after {
+    @apply -right-5  top-1;
+  }
+
+  .contact-title::after {
+    @apply bg-white;
+  }
+
+  .About {
+    background-repeat: no-repeat;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      url(/public/images/About_Us/About_Bg.png);
+  }
+
+  .location {
+    background-image: url(/public/images/About_Us/maps-desktop.png);
+  }
+
+  .location-title::after {
+    @apply w-1.5 h-[100px] bg-amber-450 absolute -left-6 top-3;
+    content: "";
+  }
+
+  .team-box:hover .team-box-doc {
+    @apply opacity-100;
+  }
+
+  .join-title::after {
+    @apply absolute bg-white w-[35px] h-1.5 rounded-sm -bottom-4 right-0 left-0 mx-auto;
+    content: "";
+  }
+  .contact {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      url(/public/images/Contact/contact-Bg.png);
+  }
+  .portList {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      url(/public/images/Portfolio_list/portList.png);
+  }
+  #pageNumbers button {
+    @apply border border-amber-450/[35%] py-1 px-3 text-amber-450;
+  }
+  #pageNumbers button.active {
+    @apply text-white bg-amber-450;
+  }
+  .works-title {
+    @apply line-clamp-1;
+  }
+  .portDetail {
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      url(/public/images/Portfolio_Detail/portDetail-Bg.png);
+  }
+  .article-List{
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      url(/public/images/Article_List/Article_List.png);
+  }
+  .article-Detail{
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      url(/public/images/Article_Detail/ArticleDetail_MainBg.png);
+  }
+}
+
+@layer utilities {
+  @media screen and (max-width: 640px) {
+    .About {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+        url(/public/images/About_Us/About_Mob_Bg.png);
+    }
+    .location {
+      background-image: url(/public/images/About_Us/maps-mob.png);
+    }
+    .contact {
+      background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+        url(/public/images/Contact/contact-MobBg.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .article-Detail{
+      background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      url(/public/images/Article_Detail/ArticleDetail_Mob_Bg.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+
+  .section-title {
+    @apply relative font-SourceSansBold text-[40px] mb-8 md:mb-12  text-center;
+  }
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+  .contact-input {
+    @apply border border-[#DDDDDD] h-[50px];
+  }
+}

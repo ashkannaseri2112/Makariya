@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Makarya UI Kit - Artice Detail</title>
+    <link rel="stylesheet" href="/public/styles/app.css" />
+    <link rel="shortcut icon" href="/public/images/Logo.png" type="png" />
+    <script src="/public/JavaScript/articleDetail.js" defer></script>
+  </head>
+  <body class="font-RobotoRegular overflow-x-hidden">
+    <svg class="hidden">
+      <symbol
+        id="moon"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        class="bi bi-moon"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278M4.858 1.311A7.27 7.27 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.32 7.32 0 0 0 5.205-2.162q-.506.063-1.029.063c-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286"
+        />
+      </symbol>
+      <symbol
+        id="sun"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        class="bi bi-sun"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"
+        />
+      </symbol>
+      <symbol
+        id="chvron-down"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        class="bi bi-chevron-down"
+        viewBox="0 0 16 16"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+        />
+      </symbol>
+      <symbol
+        id="bars-3"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+        />
+      </symbol>
+      <symbol
+        id="x-mark"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18 18 6M6 6l12 12"
+        />
+      </symbol>
+      <symbol
+        id="chevron-right"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="m8.25 4.5 7.5 7.5-7.5 7.5"
+        />
+      </symbol>
+      <symbol
+        id="star"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"
+        />
+      </symbol>
+      <symbol
+        id="heart"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"
+        />
+      </symbol>
+      <symbol
+        id="repeat-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 0 1-.825-.242m9.345-8.334a2.126 2.126 0 0 0-.476-.095 48.64 48.64 0 0 0-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0 0 11.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"
+        />
+      </symbol>
+    </svg>
+    <header>
+      <div class="p-5 bg-slate-950 fixed top-0 z-30 w-full">
+        <div class="container">
+          <div class="flex justify-between items-center">
+            <img src="/public/images/Logo.png" alt="LOGO" />
+            <!-- Menu Desktop -->
+            <div class="hidden sm:flex items-center">
+              <ul class="child:text-white flex text-sm gap-x-4 md:gap-x-8">
+                <li class="relative"><a href="home.html">HOME</a></li>
+                <li class="relative"><a href="about.html">ABOUT US</a></li>
+                <li class="relative listItem">
+                  <a class="flex link-text gap-x-2 items-center" href="#"
+                    >PORTFOLIO
+                    <svg
+                      class="w-3 h-3 md:w-4 md:h-4 transition-all duration-[400ms]"
+                    >
+                      <use href="#chvron-down"></use>
+                    </svg>
+                  </a>
+                  <div
+                    class="absolute subMenu z-50 child:block invisible opacity-0 duration-[400ms] transition-opacity top-full w-48 text-center -translate-x-12 rounded-b-md flex flex-col gap-6 p-5 bg-black child-hover:text-amber-450 child:transition-colors"
+                  >
+                    <a href="portList.html">PORTFOLIO LIST</a>
+                    <a href="portDetail.html">PORTFOLIO DETAIL</a>
+                  </div>
+                </li>
+                <li class="relative listItem menu-item">
+                  <a class="flex gap-x-2 items-center" href="#"
+                    >ARTICLE
+                    <svg
+                      class="w-3 h-3 md:w-4 md:h-4 transition-all duration-[400ms]"
+                    >
+                      <use href="#chvron-down"></use>
+                    </svg>
+                  </a>
+                  <div
+                    class="absolute subMenu z-50 child:block invisible opacity-0 duration-[400ms] transition-opacity top-full w-48 text-center -translate-x-12 rounded-b-md flex flex-col gap-6 p-5 bg-black child-hover:text-amber-450 child:transition-colors"
+                  >
+                    <a href="articleList.html">ARTICLE LIST</a>
+                    <a href="articleDetail.html" class="text-amber-450"
+                      >ARTICLE DETAIL</a
+                    >
+                  </div>
+                </li>
+                <li class="relative listItem">
+                  <a href="#" class="flex items-center gap-x-2"
+                    >PAGES
+                    <svg
+                      class="w-3 h-3 md:w-4 md:h-4 transition-all duration-[400ms]"
+                    >
+                      <use href="#chvron-down"></use>
+                    </svg>
+                  </a>
+                  <div
+                    class="absolute subMenu z-50 child:block child:uppercase invisible opacity-0 duration-[400ms] transition-opacity top-full w-48 text-center -translate-x-12 rounded-b-md flex flex-col gap-6 p-5 bg-black child-hover:text-amber-450 child:transition-colors"
+                  >
+                    <a href="#">login</a>
+                    <a href="#">register</a>
+                    <a href="#">my profile</a>
+                    <a href="#">faq</a>
+                    <a href="#">404 page</a>
+                  </div>
+                </li>
+                <li class="relative"><a href="contact.html">CONTACT</a></li>
+              </ul>
+              <!-- Toggle Theme -->
+              <!-- <a href="#" class="bg-zinc-600 p-1.5 rounded-full switch-button">
+                    <svg  class="w-5 h-5 inline-block dark:hidden text-white">
+                      <use  href="#moon"></use>
+                    </svg>
+                    <svg  class="w-5 h-5 hidden dark:inline-block text-white ">
+                      <use  href="#sun"></use>
+                    </svg>
+                 </a> -->
+            </div>
+            <!-- Mobile Menu Icon -->
+            <svg
+              id="enter-Menu"
+              class="block sm:hidden text-amber-450 w-12 h-12"
+            >
+              <use href="#bars-3"></use>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <!-- Mobile Menu  -->
+      <div class="p-4 nav hidden sm:hidden w-full top-0 z-50 bg-[#0D0908]">
+        <!-- Mobile Menu Header -->
+        <div>
+          <svg id="exit-menu" class="text-white w-7 h-7">
+            <use href="#x-mark"></use>
+          </svg>
+        </div>
+        <!-- Mobile Menu Body -->
+        <ul class="text-white items-center flex flex-col gap-y-8">
+          <li><a href="home.html">HOME</a></li>
+          <li><a href="about.html">ABOUT US</a></li>
+          <li class="listItemMobile">
+            <a
+              data-id="1"
+              href="#"
+              class="flex items-center justify-center gap-2"
+              >PORTFOLIO
+              <svg class="w-3 h-3">
+                <use href="#chvron-down"></use>
+              </svg>
+            </a>
+            <div
+              data-id="1"
+              class="hidden subMenuMob flex-col items-center gap-y-3 mt-3 text-xs"
+            >
+              <a href="portList.html">PORTFOLIO LIST</a>
+              <a href="portDetail.html">PORTFOLIO DETAIL</a>
+            </div>
+          </li>
+          <li class="listItemMobile">
+            <a
+              data-id="2"
+              href="#"
+              class="flex items-center justify-center gap-2"
+              >ARTICLE
+              <svg class="w-3 h-3">
+                <use href="#chvron-down"></use>
+              </svg>
+            </a>
+            <div
+              data-id="2"
+              class="hidden subMenuMob flex-col items-center gap-y-3 mt-3 text-xs"
+            >
+              <a href="articleList.html">ARTICLE LIST</a>
+              <a href="articleDetail.html">ARTICLE DETAIL</a>
+            </div>
+          </li>
+          <li class="listItemMobile">
+            <a
+              data-id="3"
+              class="flex items-center justify-center gap-2"
+              href="#"
+              >PAGES
+              <svg class="w-3 h-3">
+                <use href="#chvron-down"></use>
+              </svg>
+            </a>
+            <div
+              data-id="3"
+              class="hidden uppercase subMenuMob flex-col items-center gap-y-3 mt-3 text-xs"
+            >
+              <a href="#">login</a>
+              <a href="#">register</a>
+              <a href="#">my profile</a>
+              <a href="#">faq</a>
+              <a href="#">404 page</a>
+            </div>
+          </li>
+          <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+      </div>
+    </header>
+    <main>
+      <div
+        class="article-Detail relative w-full h-48 sm:h-[400px] bg-cover mt-[88px] flex-center flex-col sm:mt-14"
+      >
+        <div class="text-white text-center">
+          <h3 class="font-SourceSansBold text-lg sm:text-[40px]">
+            Article Detail
+          </h3>
+          <p class="w-[265px] hidden mt-5 tracking-wider sm:block">
+            Nulla vitae elit libero, a pharetra augue mollis interdum.
+          </p>
+        </div>
+        <div class="w-full absolute bottom-0 min-h-11 bg-black/75 ps-6 py-3">
+          <span class="text-amber-450"
+            >Home <span class="text-white">/ </span>Article List
+            <span class="text-white block sm:inline-block">
+              / Article Detail</span
+            ></span
+          >
+        </div>
+      </div>
+      <!-- Introduction letter -->
+      <div class="introduction mt-16 px-4">
+        <div class="container">
+          <div class="max-w-[730px] mx-auto">
+            <h3 class="text-[40px] font-SourceSansBold text-left">
+              Neque porro quisquam est qui dolorem ipsum quia dolor sit amet
+            </h3>
+            <div class="flex mt-6 items-center gap-x-5">
+              <img src="/public/images/Article_Detail/user1.png" alt="user" />
+              <div>
+                <span class="font-SourceSansBold block mb-2"
+                  >By:<span class="font-RobotoRegular ml-3 text-amber-450"
+                    >Hayden Shaw</span
+                  ></span
+                >
+                <span class="font-SourceSansBold block"
+                  >Date:<span class="font-RobotoRegular ml-3"
+                    >Monday,10 September 2018</span
+                  ></span
+                >
+              </div>
+            </div>
+            <span class="flex mt-5 gap-6 font-SourceSansBold tracking-wide"
+              >Category:<span
+                class="rounded-full text-center font-RobotoRegular flex-center text-amber-450 text-[10px] w-[66px] h-[27px] border border-amber-450"
+                >Branding</span
+              >
+            </span>
+            <div class="flex leading-8 flex-col gap-y-10 mt-16 tracking-wide">
+              <p>
+                <span class="text-[40px]">M</span>aecenas faucibus neque nec
+                purus viverra molestie. Sed euismod eleifend faucibus. Maecenas
+                viverra massa quis felis finibus posuere. Cras ut luctus quam.
+                Vestibulum eget lectus id nulla tincidunt posuere. Cras eget
+                vehicula lorem, vel posuere mauris
+              </p>
+              <p>
+                Fusce viverra lobortis nulla, id congue ligula tempus non. Etiam
+                est urna, congue non condimentum at, cursus nec odio. Sed ac
+                posuere mauris. Mauris ac eleifend mauris. Aenean dignissim diam
+                tortor, in congue odio tincidunt eget. Nullam ut ex a nulla
+                lobortis elementum at quis lacus. Nulla non lacus iaculis,
+                semper ligula et, lobortis ex. Sed vitae viverra velit. Donec
+                non leo nec ligula consequat lacinia. Vestibulum id quam
+                fringilla, gravida sapien eget, eleifend lectus. Vestibulum
+                placerat rutrum velit et pharetra. Suspendisse venenatis
+                lobortis quam vitae tempor.
+              </p>
+              <p>
+                Pellentesque eu tortor vestibulum, gravida est eu, tempor elit.
+                In non dolor sit amet metus tincidunt tempus. Aliquam blandit
+                risus nec pharetra finibus. Etiam diam massa, dictum et dolor
+                ac, elementum pulvinar lectus. In vitae interdum tellus. Sed
+                odio quam, semper vel rutrum at, laoreet eget tortor.
+                Suspendisse sagittis justo ac mi sollicitudin, egestas sagittis
+                nisl rutrum. Morbi euismod, sem quis tempor dictum, risus purus
+                tincidunt justo, vitae lacinia odio est at erat. Quisque
+                sollicitudin feugiat interdum. Suspendisse sed mauris non nunc
+                auctor commodo et convallis tortor. Fusce vitae lobortis nisl.
+                Pellentesque luctus nisi mauris, in suscipit velit aliquet id.
+                Vivamus at luctus ex, quis semper dolor. Sed vestibulum
+                convallis massa sed tristique. Pellentesque auctor dui arcu,
+                vitae consectetur massa porttitor sit amet.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Share It -->
+      <div class="max-w-[730px] px-3 mx-auto">
+        <div class="my-10 pt-10 relative">
+          <span
+            class="w-[35px] h-1.5 bg-amber-450 absolute top-0 left-0 right-0 mx-auto"
+          ></span>
+          <h5 class="font-SourceSansBold text-xl text-center">
+            Share It On Your :
+          </h5>
+          <div class="flex-center flex-wrap gap-4 sm:gap-x-8 mt-5">
+            <a href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  id="linkedin"
+                  d="M29.714,32H2.279A2.3,2.3,0,0,0,0,34.307V61.693A2.3,2.3,0,0,0,2.279,64H29.714A2.3,2.3,0,0,0,32,61.693V34.307A2.3,2.3,0,0,0,29.714,32ZM9.671,59.429H4.929V44.157h4.75V59.429ZM7.3,42.071a2.75,2.75,0,1,1,2.75-2.75A2.751,2.751,0,0,1,7.3,42.071ZM27.45,59.429H22.707V52c0-1.771-.036-4.05-2.464-4.05-2.471,0-2.85,1.929-2.85,3.921v7.557H12.65V44.157H17.2v2.086h.064a5,5,0,0,1,4.493-2.464c4.8,0,5.693,3.164,5.693,7.279Z"
+                  transform="translate(0 -32)"
+                  fill="#ffb51f"
+                />
+              </svg>
+            </a>
+            <a href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  id="medium"
+                  d="M0,32V64H32V32Zm26.586,7.579-1.714,1.643a.5.5,0,0,0-.193.479V53.793a.492.492,0,0,0,.193.479l1.679,1.643v.364H18.121v-.35l1.736-1.686c.171-.171.171-.221.171-.479V43.986L15.2,56.243h-.65L8.929,43.986V52.2a1.129,1.129,0,0,0,.314.943L11.5,55.879v.364H5.086v-.364l2.257-2.736a1.094,1.094,0,0,0,.293-.943V42.7a.815.815,0,0,0-.271-.7L5.357,39.579v-.364h6.236l4.814,10.571,4.236-10.564h5.943Z"
+                  transform="translate(0 -32)"
+                  fill="#ffb51f"
+                />
+              </svg>
+            </a>
+            <a href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="25.99"
+                viewBox="0 0 32 25.99"
+              >
+                <path
+                  id="twitter"
+                  d="M28.711,54.559c.02.284.02.569.02.853,0,8.67-6.6,18.66-18.66,18.66A18.533,18.533,0,0,1,0,71.128a13.566,13.566,0,0,0,1.584.081,13.135,13.135,0,0,0,8.142-2.8,6.57,6.57,0,0,1-6.132-4.548,8.271,8.271,0,0,0,1.239.1,6.936,6.936,0,0,0,1.726-.223A6.559,6.559,0,0,1,1.3,57.3v-.081a6.6,6.6,0,0,0,2.964.832,6.568,6.568,0,0,1-2.03-8.772,18.642,18.642,0,0,0,13.523,6.863,7.4,7.4,0,0,1-.162-1.5,6.565,6.565,0,0,1,11.35-4.487,12.912,12.912,0,0,0,4.162-1.584,6.541,6.541,0,0,1-2.883,3.614A13.148,13.148,0,0,0,32,51.168,14.1,14.1,0,0,1,28.711,54.559Z"
+                  transform="translate(0 -48.082)"
+                  fill="#ffb51f"
+                />
+              </svg>
+            </a>
+            <a href="#">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+              >
+                <path
+                  id="facebook-square"
+                  d="M32,35.429V60.571A3.429,3.429,0,0,1,28.571,64H22.479V51.343h4.329l.621-4.829h-4.95V43.429c0-1.4.386-2.35,2.393-2.35h2.557V36.764a34.38,34.38,0,0,0-3.729-.193c-3.686,0-6.214,2.25-6.214,6.386v3.564H13.143V51.35h4.35V64H3.429A3.429,3.429,0,0,1,0,60.571V35.429A3.429,3.429,0,0,1,3.429,32H28.571A3.429,3.429,0,0,1,32,35.429Z"
+                  transform="translate(0 -32)"
+                  fill="#ffb51f"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <!-- Get Inspired -->
+        <div class="Inspired relative">
+          <span
+            class="h-0.5 left-0 top-0 right-0 mx-auto w-1/2 sm:w-full bg-amber-450 absolute"
+          ></span>
+          <h2 class="section-title pt-16 mb-8">Get Inspired</h2>
+          <div class="inspired-Container grid md:grid-cols-2 gap-8">
+            <!-- <div class="max-w-[370px]  px-5 sm:px-0 mx-auto  ">
+                    <div class="flex">
+                      <img
+                        src="`+article.img+`"
+                        alt="`+article.title+`"
+                      />
+                      <div class="p-8 border-amber-450/35 border-2 border-l-0">
+                        <span
+                          class="block rounded-full text-center flex-center text-amber-450 text-[10px] w-[66px] h-[27px] border border-amber-450"
+                          >Branding</span
+                        >
+                        <h5 class="my-5 font-SourceSansBold text-xl">`+article.title+`</h5>
+                        <p class=" mb-5 text-sm line-clamp-6 text-#818A91">
+                          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                          Eos, iusto praesentium? Sunt quibusdam et soluta corporis
+                          explicabo provident quia! Doloribus cumque laborum voluptas
+                          a? Maxime?
+                        </p>
+                        <a
+                          href="#"
+                          class="w-[72px] h-[40px] text-white rounded-sm mt-5 bg-amber-450 flex-center"
+                          >VIEW</a
+                        >
+                      </div>
+                    </div>
+                </div> -->
+          </div>
+        </div>
+        <!-- Comments -->
+        <div class="mt-24 relative px-3">
+          <span
+            class="w-full h-0.5 bg-[#ECEEEF] absolute left-0 right-0 mx-auto mt-4"
+          ></span>
+          <h2 class="pt-8 font-SourceSansBold text-[40px]">3 Comments</h2>
+          <span
+            class="w-full h-0.5 bg-[#ECEEEF] absolute left-0 right-0 mx-auto mt-4"
+          ></span>
+          <div id="comments">
+            <div class="mt-12 mb-8 comments-box">
+              <div class="flex items-center gap-6">
+                <img
+                  src="/public/images/Article_Detail/user2.png"
+                  alt="poppy"
+                />
+                <div class="flex-col gap-3 flex">
+                  <span class="font-SourceSansBold">Poppy Sinclair</span>
+                  <span class="text-[#DDDDDD]">Monday, 10 September 2018</span>
+                </div>
+              </div>
+              <p class="mt-8 line-clamp-3 sm:line-clamp-none">
+                Maecenas faucibus neque nec purus viverra molestie. Sed euismod
+                eleifend faucibus. Maecenas viverra massa quis felis finibus
+                posuere. Cras ut luctus quam. Vestibulum eget lectus id nulla
+                tincidunt posuere.
+              </p>
+              <div class="flex justify-between items-center mt-5 sm:mt-10">
+                <div class="flex gap-3">
+                  <svg
+                    id="heart-Like"
+                    fill="white"
+                    class="text-amber-450 likeButton w-6 h-6"
+                    data-id="1"
+                  >
+                    <use href="#heart"></use>
+                  </svg>
+                  <span data-id="1" class="like-Number">15</span>
+                </div>
+                <button
+                  data-id="1"
+                  class="replyButton w-[116px] flex gap-2 text-amber-450 h-[43px] border-2 border-amber-450 flex-center"
+                >
+                  <svg class="w-6 h-5">
+                    <use href="#repeat-icon"></use>
+                  </svg>
+                  <span>Reply</span>
+                </button>
+              </div>
+              <div
+                data-id="1"
+                class="mt-8 replayForm hidden items-center gap-5"
+              >
+                <input
+                  class="rounded-md p-3 w-full flex border border-[#DDDDDD] min-h-12 focus:outline-none"
+                  type="text"
+                  placeholder="Replay Message..."
+                />
+                <button
+                  class="postReply bg-amber-450  w-[72px] text-white rounded-sm h-10"
+                >
+                  Send
+                </button>
+              </div>
+            </div>
+            <span
+              class="w-full h-0.5 bg-[#ECEEEF] absolute left-0 right-0 mx-auto mt-4"
+            ></span>
+            <div class="mb-12 mt-24 hidden comments-box">
+              <div class="flex items-center gap-6">
+                <img
+                  src="/public/images/Article_Detail/user3.png"
+                  alt="Hayden"
+                />
+                <div class="flex-col gap-3 flex">
+                  <span class="font-SourceSansBold">Hayden Shaw</span>
+                  <span class="text-[#DDDDDD]">Monday, 10 September 2018</span>
+                </div>
+              </div>
+              <p class="mt-8 line-clamp-3 sm:line-clamp-none">
+                Maecenas faucibus neque nec purus viverra molestie. Sed euismod
+                eleifend faucibus. Maecenas viverra massa quis felis finibus
+                posuere. Cras ut luctus quam. Vestibulum eget lectus id nulla
+                tincidunt posuere.
+              </p>
+              <div class="flex justify-between items-center mt-5 sm:mt-10">
+                <div class="flex gap-3">
+                  <svg
+                    id="heart-Like"
+                    fill="white"
+                    class="text-amber-450 likeButton w-6 h-6"
+                    data-id="2"
+                  >
+                    <use href="#heart"></use>
+                  </svg>
+                  <span data-id="2" class="like-Number">15</span>
+                </div>
+                <button
+                  data-id="2"
+                  class="w-[116px] replyButton flex gap-2 text-amber-450 h-[43px] border-2 border-amber-450 flex-center"
+                >
+                  <svg class="w-6 h-5">
+                    <use href="#repeat-icon"></use>
+                  </svg>
+                  <span>Reply</span>
+                </button>
+              </div>
+              <div
+                data-id="2"
+                class="replayForm mt-8 hidden items-center gap-5"
+              >
+                <input
+                  class="rounded-md p-3 w-full flex border border-[#DDDDDD] min-h-12 focus:outline-none"
+                  type="text"
+                  placeholder="Replay Message..."
+                />
+                <button
+                  class="postReply bg-amber-450 w-[72px] text-white rounded-sm h-10"
+                >
+                  Send
+                </button>
+              </div>
+            </div>
+            <span
+              class="w-full h-0.5 bg-[#ECEEEF] absolute left-0 right-0 mx-auto mt-4"
+            ></span>
+            <div class="mb-12 mt-24 hidden comments-box">
+              <div class="flex items-center gap-6">
+                <img
+                  src="/public/images/Article_Detail/user3.png"
+                  alt="Hayden"
+                />
+                <div class="flex-col gap-3 flex">
+                  <span class="font-SourceSansBold">Hayden Shaw</span>
+                  <span class="text-[#DDDDDD]">Monday, 10 September 2018</span>
+                </div>
+              </div>
+              <p class="mt-8 line-clamp-3 sm:line-clamp-none">
+                Maecenas faucibus neque nec purus viverra molestie. Sed euismod
+                eleifend faucibus. Maecenas viverra massa quis felis finibus
+                posuere. Cras ut luctus quam. Vestibulum eget lectus id nulla
+                tincidunt posuere.
+              </p>
+              <div class="flex justify-between items-center mt-5 sm:mt-10">
+                <div class="flex gap-3">
+                  <svg
+                    data-id="3"
+                    id="heart-Like"
+                    fill="white"
+                    class="text-amber-450 likeButton w-6 h-6"
+                  >
+                    <use href="#heart"></use>
+                  </svg>
+                  <span data-id="3" class="like-Number">15</span>
+                </div>
+                <button
+                  data-id="3"
+                  href="#"
+                  class="w-[116px] replyButton flex gap-2 text-amber-450 h-[43px] border-2 border-amber-450 flex-center"
+                >
+                  <svg class="w-6 h-5">
+                    <use href="#repeat-icon"></use>
+                  </svg>
+                  <span>Reply</span>
+                </button>
+              </div>
+              <div
+                data-id="3"
+                class="replayForm  mt-8 hidden items-center gap-5"
+              >
+                <input
+                  class="rounded-md p-3 w-full flex border border-[#DDDDDD] min-h-12 focus:outline-none"
+                  type="text"
+                  placeholder="Replay Message..."
+                />
+                <button
+                  class="bg-amber-450 postReply w-[72px] text-white rounded-sm h-10"
+                >
+                  Send
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="flex-center">
+            <button
+              id="loadButton"
+              onclick="showAllComments()"
+              class="w-[134px] h-[39px] mt-12 bg-amber-450 text-white"
+            >
+              Load More ...
+            </button>
+            <button
+              id="HideButton"
+              onclick="hideComment()"
+              class="w-[134px] h-[39px] mt-12 bg-amber-450 text-white hidden"
+            >
+              Hide More ...
+            </button>
+          </div>
+          <span
+            class="w-full h-0.5 bg-[#ECEEEF] absolute left-0 right-0 mx-auto mt-8"
+          ></span>
+        </div>
+        <!-- Post A Comment -->
+        <div class="mt-36 px-4">
+           <h2 class="section-title">Post a Comment</h2>
+           <div class="flex flex-col gap-8 mt-16 ">
+           <div>
+            <span class="block font-SourceSansBold text-xl mb-2">Email addres</span>
+            <input class="w-full h-[55px] focus:outline-0 border px-5" placeholder="Email Addres" type="email" name="email">
+           </div>
+           <div>
+            <span class="block font-SourceSansBold text-xl mb-2">Name</span>
+            <input class="w-full h-[58px] focus:outline-0 border px-5" placeholder="Name" type="text" name="text">
+           </div>
+           <div>
+            <span class="block font-SourceSansBold text-xl mb-2">Comment</span>
+            <input class="w-full h-[58px] focus:outline-0 border px-5" placeholder="Comment" type="text" name="text">
+           </div>
+           </div>
+           <div class="flex-center mt-9">
+            <a href="#" id="Send-Button" class="bg-amber-450 text-white px-8 py-3">SEND</a>
+           </div>          
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="bg-black px-8 py-24 mt-20">
+        <div class="container">
+         <div class="block  sm:flex  text-center sm:text-left justify-between gap-9 flex-wrap text-white">
+           <div>
+             <img class="w-[53px] h-[53px] mx-auto sm:mx-0" src="/public/images/Logo-footer.png" alt="Logo-Footer">
+             <p class="mt-4 w-[290px] mx-auto sm:w-[310px]">With supporting text below as a natural lead-in to additional content. Lorem ipsum and something else.</p>  
+             <div class="my-16 text-sm ">
+               <p>Special Region of Yogyakarta</p>
+               <p>Indonesia</p>
+               <span class="block">(027) 333333</span>
+             </div>
+           </div>
+             <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-6 sm:text-left">
+             <li><a href="home.html" class=" hover:text-amber-450">Home</a></li>
+             <li><a href="about.html" class=" hover:text-amber-450">About Us</a></li>
+             <li><a href="#" class=" hover:text-amber-450">Portfolio</a>
+               <ul class="mt-2 flex flex-col gap-y-3">
+               <li class="text-xs ps-3"><a class="hover:text-amber-450" href="portList.html">Portfolio List</a></li>
+               <li class="text-xs ps-3"><a class="hover:text-amber-450" href="portDetail.html">Portfolio Detail</a></li>
+             </ul>
+             </li>
+             <li>
+               <a href="#" class="hover:text-amber-450">Article</a>
+               <ul class="mt-2 flex flex-col gap-y-3">
+                 <li class="text-xs ps-3"><a class="hover:text-amber-450" href='articleList.html' >Article List</a></li>
+                 <li class="text-xs ps-3"><a class="hover:text-amber-450" href="articleDetail.html">Article Detail</a></li>
+               </ul>
+             </li>
+             <li><a href="#" class="hover:text-amber-450">Pages</a>
+               <ul class="mt-2 flex flex-col gap-y-3">
+                 <li class="text-xs ps-3"><a class="hover:text-amber-450" href="#">Login</a></li>
+                 <li class="text-xs ps-3"><a class="hover:text-amber-450" href="#">Register</a></li>
+                 <li class="text-xs ps-3"><a class="hover:text-amber-450" href="#">My Profile</a></li>
+                 <li class="text-xs ps-3"><a class="hover:text-amber-450" href="#">Pricing</a></li>
+                 <li class="text-xs ps-3"><a class="hover:text-amber-450" href="#">FAQ</a></li>
+                 <li class="text-xs ps-3"><a class="hover:text-amber-450" href="#">404 Page</a></li>
+               </ul>
+             </li>
+             <li><a href="#" class="hover:text-amber-450">Contact</a></li>
+           </ul>
+           <div class="mt-24 sm:mt-0 ">
+             <h3 class="font-SourceSansBold text-xl">Follow us on:</h3>
+             <div class="flex justify-center gap-x-8 flex-wrap sm:grid grid-cols-3  gap-y-7 mt-7">
+             <a href="https://www.linkedin.com/feed/">
+               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                   <path id="linkedin" d="M29.714,32H2.279A2.3,2.3,0,0,0,0,34.307V61.693A2.3,2.3,0,0,0,2.279,64H29.714A2.3,2.3,0,0,0,32,61.693V34.307A2.3,2.3,0,0,0,29.714,32ZM9.671,59.429H4.929V44.157h4.75V59.429ZM7.3,42.071a2.75,2.75,0,1,1,2.75-2.75A2.751,2.751,0,0,1,7.3,42.071ZM27.45,59.429H22.707V52c0-1.771-.036-4.05-2.464-4.05-2.471,0-2.85,1.929-2.85,3.921v7.557H12.65V44.157H17.2v2.086h.064a5,5,0,0,1,4.493-2.464c4.8,0,5.693,3.164,5.693,7.279Z" transform="translate(0 -32)" fill="#ffb51f"/>
+               </svg>  
+             </a>
+             <a href="#">
+               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                 <path id="medium" d="M0,32V64H32V32Zm26.586,7.579-1.714,1.643a.5.5,0,0,0-.193.479V53.793a.492.492,0,0,0,.193.479l1.679,1.643v.364H18.121v-.35l1.736-1.686c.171-.171.171-.221.171-.479V43.986L15.2,56.243h-.65L8.929,43.986V52.2a1.129,1.129,0,0,0,.314.943L11.5,55.879v.364H5.086v-.364l2.257-2.736a1.094,1.094,0,0,0,.293-.943V42.7a.815.815,0,0,0-.271-.7L5.357,39.579v-.364h6.236l4.814,10.571,4.236-10.564h5.943Z" transform="translate(0 -32)" fill="#ffb51f"/>
+               </svg>
+             </a>   
+             <a href="#">
+               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="25.99" viewBox="0 0 32 25.99">
+                 <path id="twitter" d="M28.711,54.559c.02.284.02.569.02.853,0,8.67-6.6,18.66-18.66,18.66A18.533,18.533,0,0,1,0,71.128a13.566,13.566,0,0,0,1.584.081,13.135,13.135,0,0,0,8.142-2.8,6.57,6.57,0,0,1-6.132-4.548,8.271,8.271,0,0,0,1.239.1,6.936,6.936,0,0,0,1.726-.223A6.559,6.559,0,0,1,1.3,57.3v-.081a6.6,6.6,0,0,0,2.964.832,6.568,6.568,0,0,1-2.03-8.772,18.642,18.642,0,0,0,13.523,6.863,7.4,7.4,0,0,1-.162-1.5,6.565,6.565,0,0,1,11.35-4.487,12.912,12.912,0,0,0,4.162-1.584,6.541,6.541,0,0,1-2.883,3.614A13.148,13.148,0,0,0,32,51.168,14.1,14.1,0,0,1,28.711,54.559Z" transform="translate(0 -48.082)" fill="#ffb51f"/>
+               </svg>                
+             </a>
+             <a href="https://dribbble.com/following">
+               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                 <path id="dribbble" d="M24,8A16,16,0,1,0,40,24,16.018,16.018,0,0,0,24,8Zm10.579,7.378a13.6,13.6,0,0,1,3.086,8.513,31.938,31.938,0,0,0-9.516-.44c-.371-.906-.721-1.7-1.2-2.685a18.2,18.2,0,0,0,7.631-5.389ZM33.059,13.8c-.246.35-2.3,3.115-7.163,4.937a72.949,72.949,0,0,0-5.1-8A13.631,13.631,0,0,1,33.059,13.8ZM18.19,11.653a87.2,87.2,0,0,1,5.067,7.9,50.976,50.976,0,0,1-12.634,1.665A13.716,13.716,0,0,1,18.19,11.653ZM10.334,24.021c0-.14,0-.279.007-.418a50.413,50.413,0,0,0,14.046-1.945c.391.766.765,1.543,1.108,2.319a21.169,21.169,0,0,0-11.647,9.181A13.612,13.612,0,0,1,10.334,24.021ZM15.611,34.8c1.428-2.918,5.3-6.685,10.812-8.565A56.808,56.808,0,0,1,29.338,36.6,13.639,13.639,0,0,1,15.611,34.8Zm16.025.548a58.985,58.985,0,0,0-2.655-9.744,20.059,20.059,0,0,1,8.513.584A13.69,13.69,0,0,1,31.636,35.35Z" transform="translate(-8 -8)" fill="#ffb51f"/>
+               </svg>                
+             </a>        
+             <a href="#">
+               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+                 <path id="facebook-square" d="M32,35.429V60.571A3.429,3.429,0,0,1,28.571,64H22.479V51.343h4.329l.621-4.829h-4.95V43.429c0-1.4.386-2.35,2.393-2.35h2.557V36.764a34.38,34.38,0,0,0-3.729-.193c-3.686,0-6.214,2.25-6.214,6.386v3.564H13.143V51.35h4.35V64H3.429A3.429,3.429,0,0,1,0,60.571V35.429A3.429,3.429,0,0,1,3.429,32H28.571A3.429,3.429,0,0,1,32,35.429Z" transform="translate(0 -32)" fill="#ffb51f"/>
+               </svg>                
+             </a>     
+             <a href="#">
+               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="31.993" viewBox="0 0 32 31.993">
+                 <path id="instagram" d="M15.929,39.619a8.2,8.2,0,1,0,8.2,8.2A8.19,8.19,0,0,0,15.929,39.619Zm0,13.535a5.333,5.333,0,1,1,5.333-5.333,5.342,5.342,0,0,1-5.333,5.333ZM26.38,39.283a1.913,1.913,0,1,1-1.913-1.913A1.909,1.909,0,0,1,26.38,39.283Zm5.433,1.942a9.468,9.468,0,0,0-2.584-6.7,9.53,9.53,0,0,0-6.7-2.584c-2.641-.15-10.558-.15-13.2,0a9.517,9.517,0,0,0-6.7,2.577,9.5,9.5,0,0,0-2.584,6.7c-.15,2.641-.15,10.558,0,13.2a9.468,9.468,0,0,0,2.584,6.7,9.542,9.542,0,0,0,6.7,2.584c2.641.15,10.558.15,13.2,0a9.468,9.468,0,0,0,6.7-2.584,9.53,9.53,0,0,0,2.584-6.7c.15-2.641.15-10.551,0-13.193ZM28.4,57.252a5.4,5.4,0,0,1-3.041,3.041c-2.106.835-7.1.642-9.43.642s-7.332.186-9.43-.642a5.4,5.4,0,0,1-3.041-3.041c-.835-2.106-.642-7.1-.642-9.43s-.186-7.332.642-9.43A5.4,5.4,0,0,1,6.5,35.35c2.106-.835,7.1-.642,9.43-.642s7.332-.186,9.43.642A5.4,5.4,0,0,1,28.4,38.391c.835,2.106.642,7.1.642,9.43S29.235,55.153,28.4,57.252Z" transform="translate(0.075 -31.825)" fill="#ffb51f"/>
+               </svg>                
+             </a>       
+             </div>
+           </div>
+         </div>
+        </div>
+      </div>
+      <div class="bg-amber-450 py-4 text-center">
+       <p class="text-white text-sm">2018 Makarya. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
